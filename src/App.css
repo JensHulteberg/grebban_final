@@ -1,0 +1,72 @@
+.body {
+	font-family: "Open Sans", sans-serif;
+}
+
+.puzzleContainer {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.puzzleGrid {
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	align-content: center;
+	display: grid;
+}
+
+.interfaceContainer {
+	width: 100vw;
+	max-height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.messageContainer {
+	width: 100vw;
+	max-height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.disableMouseInput {
+	pointer-events: none;
+}
+
+.container .item {
+	grid-column-start: auto;
+	grid-row-start: auto;
+}
+
+.tile {
+	margin: 4px;
+	-webkit-box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+	box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+	text-align: center;
+	position: relative;
+}
+
+.tile p {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.resetButtonsGrid {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 8px;
+}
+
+.inputGrid {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	grid-gap: 4px;
+}
