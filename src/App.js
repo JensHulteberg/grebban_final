@@ -9,26 +9,28 @@ function App() {
 	const [dims, setDims] = useState([3, 3]);
 	const [gameWon, setGameWon] = useState(false);
 
-	function handleClick(number) {
+	//Handles the modification of the puzzle-array when a square is clicked
+	const handleClick = (number) => {
 		var new_puzzle_layout = puzzleArrayModifier(puzzle, number, dims);
 		setPuzzle([...new_puzzle_layout]);
 		checkIfWon();
-	}
+	};
 
-	function createPuzzle() {
+	//Create or reset puzzle
+	const createPuzzle = () => {
 		setGameWon(false);
 		setPuzzle(shuffle(Array.from(Array(dims[0] * dims[1]).keys())));
-	}
+	};
 
-	function shuffle(array) {
+	const shuffle = (array) => {
 		for (let i = array.length - 1; i > 0; i--) {
 			let j = Math.floor(Math.random() * (i + 1));
 			[array[i], array[j]] = [array[j], array[i]];
 		}
 		return array;
-	}
+	};
 
-	function checkIfWon() {
+	const checkIfWon = () => {
 		var check_list = puzzle;
 		if (check_list[check_list.length - 1] == 0) {
 			check_list.pop();
@@ -36,8 +38,9 @@ function App() {
 		setGameWon(
 			!!check_list.reduce((n, item) => n !== false && item >= n && item)
 		);
-	}
+	};
 
+	//Resets puzzle every time the dimensions of the puzzle are updated (also on initial load)
 	useEffect(() => {
 		createPuzzle();
 	}, [dims]);
